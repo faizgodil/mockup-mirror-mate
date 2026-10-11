@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Render DentalPro concepts through the shared responsive DentalDashboard picture, using the phone illustration below 640px and the full dashboard otherwise, so branding and readable demonstration views stay consistent across hero, portfolio and showcase.
