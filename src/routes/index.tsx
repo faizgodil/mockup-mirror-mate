@@ -179,7 +179,7 @@ function Hero() {
               <span className="ml-3 truncate text-xs text-muted-foreground">DentalPro — practice dashboard</span>
             </div>
             <div className="relative">
-              <img src={products[0].image} alt="Illustrative concept of a dental practice management dashboard" width={1600} height={1008} className="block h-auto w-full" />
+              <img src={products[0]!.image} alt="Illustrative concept of a dental practice management dashboard" width={1600} height={1008} className="block h-auto w-full" />
               <Illustrative />
             </div>
           </div>
@@ -255,7 +255,7 @@ function DentalPro() {
         </div>
         <div className="reveal relative min-w-0">
           <div className="relative overflow-hidden rounded-2xl border border-border shadow-elegant lg:animate-floaty">
-            <img src={products[0].image} alt="Illustrative concept of DentalPro scheduling and billing views" loading="lazy" width={1600} height={1008} className="block h-auto w-full" />
+            <img src={products[0]!.image} alt="Illustrative concept of DentalPro scheduling and billing views" loading="lazy" width={1600} height={1008} className="block h-auto w-full" />
             <Illustrative />
           </div>
         </div>
