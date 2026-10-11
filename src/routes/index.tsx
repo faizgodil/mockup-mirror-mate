@@ -128,7 +128,7 @@ function Status({ s, label }: { s: ProductStatus; label: string }) {
 
 function Illustrative() {
   return (
-    <span className="absolute bottom-2 right-2 rounded-md border border-border bg-background/95 px-2 py-1 text-[11px] uppercase tracking-wider text-foreground backdrop-blur">
+    <span className="relative mx-2 mb-2 mt-1 block w-fit rounded-md border border-border bg-background/95 px-2 py-1 text-[11px] uppercase tracking-wider text-foreground backdrop-blur sm:absolute sm:bottom-2 sm:right-2 sm:m-0">
       Illustrative concept
     </span>
   );
