@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { products, type Product, type ProductStatus } from "@/content/products";
+import dentalProImage from "@/assets/dentalpro.jpg";
+import dentalProMobileImage from "@/assets/dentalpro-mobile.jpg";
 
 const TITLE = "UniqManage — Intelligent Software. Built for Real Work.";
 const DESC =
@@ -126,9 +128,25 @@ function Status({ s, label }: { s: ProductStatus; label: string }) {
 
 function Illustrative() {
   return (
-    <span className="absolute bottom-2 right-2 rounded-md bg-background/80 px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur">
+    <span className="absolute bottom-2 right-2 rounded-md border border-border bg-background/95 px-2 py-1 text-[11px] uppercase tracking-wider text-foreground backdrop-blur">
       Illustrative concept
     </span>
+  );
+}
+
+function DentalDashboard({ loading }: { loading?: "lazy" }) {
+  return (
+    <picture className="block">
+      <source media="(max-width: 639px)" srcSet={dentalProMobileImage} width={928} height={1083} />
+      <img
+        src={dentalProImage}
+        alt="DentalPro dashboard illustrative concept with fictional demonstration appointments and billing data"
+        loading={loading}
+        width={1264}
+        height={848}
+        className="block h-auto w-full"
+      />
+    </picture>
   );
 }
 
@@ -147,21 +165,21 @@ function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-grid" />
       <div className="pointer-events-none absolute inset-0 bg-glow" />
-      <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-14 sm:pt-24">
+      <div className="relative mx-auto max-w-6xl px-5 pb-8 pt-10 sm:pb-12 sm:pt-20">
         <div className="max-w-3xl animate-rise">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Independent software venture · India
           </p>
-          <h1 className="mt-6 text-[2.35rem] font-semibold leading-[1.08] sm:text-6xl">
+          <h1 className="mt-5 text-[2.35rem] font-semibold leading-[1.08] sm:mt-6 sm:text-6xl">
             Intelligent Software.
             <br />
             <span className="text-gradient">Built for Real Work.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:mt-6 sm:text-lg">
             UniqManage develops practical, reliable software for healthcare, finance and business operations — combining
             thoughtful design, automation and AI where it creates meaningful value.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
             <a href="#products" className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-foreground shadow-elegant transition hover:opacity-90">
               Explore Products
             </a>
@@ -170,16 +188,16 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div className="relative mt-14 animate-rise [animation-delay:200ms]">
+        <div className="relative mt-8 animate-rise [animation-delay:200ms] sm:mt-12">
           <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
             <div className="flex items-center gap-1.5 border-b border-border px-4 py-2.5">
               <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
               <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
               <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
-              <span className="ml-3 truncate text-xs text-muted-foreground">DentalPro — practice dashboard</span>
+              <span className="ml-3 min-w-0 truncate text-xs text-foreground">DentalPro — practice dashboard</span>
             </div>
             <div className="relative">
-              <img src={products[0]!.image} alt="Illustrative concept of a dental practice management dashboard" width={1600} height={1008} className="block h-auto w-full" />
+              <DentalDashboard />
               <Illustrative />
             </div>
           </div>
@@ -194,8 +212,8 @@ function ProductCard({ p }: { p: Product }) {
     <article
       className={`reveal group flex min-w-0 flex-col overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-1 ${p.flagship ? "border-primary/40 md:col-span-2 md:grid md:grid-cols-2" : "border-border"}`}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-muted md:aspect-auto">
-        <img src={p.image} alt={`Illustrative concept of ${p.name}`} loading="lazy" width={1200} height={912} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+      <div className={`relative overflow-hidden bg-muted ${p.id === "dentalpro" ? "aspect-auto md:flex md:items-center" : "aspect-[4/3] md:aspect-auto"}`}>
+        {p.id === "dentalpro" ? <DentalDashboard loading="lazy" /> : <img src={p.image} alt={`Illustrative concept of ${p.name}`} loading="lazy" width={1200} height={912} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />}
         <Illustrative />
       </div>
       <div className="flex min-w-0 flex-col p-6 sm:p-8">
@@ -218,9 +236,9 @@ function ProductCard({ p }: { p: Product }) {
 
 function Products() {
   return (
-    <section id="products" className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+    <section id="products" className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:pb-28 sm:pt-16">
       <SectionHead eyebrow="Portfolio" title="Four products. One standard of craft." sub="Each product is labelled by its real stage — from active clinical use to early prototype." />
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className="mt-8 grid gap-5 sm:mt-12 md:grid-cols-2">
         {products.map((p) => (
           <ProductCard key={p.id} p={p} />
         ))}
@@ -255,7 +273,7 @@ function DentalPro() {
         </div>
         <div className="reveal relative min-w-0">
           <div className="relative overflow-hidden rounded-2xl border border-border shadow-elegant lg:animate-floaty">
-            <img src={products[0]!.image} alt="Illustrative concept of DentalPro scheduling and billing views" loading="lazy" width={1600} height={1008} className="block h-auto w-full" />
+            <DentalDashboard loading="lazy" />
             <Illustrative />
           </div>
         </div>
