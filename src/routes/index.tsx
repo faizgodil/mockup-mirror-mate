@@ -212,8 +212,8 @@ function ProductCard({ p }: { p: Product }) {
     <article
       className={`reveal group flex min-w-0 flex-col overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-1 ${p.flagship ? "border-primary/40 md:col-span-2 md:grid md:grid-cols-2" : "border-border"}`}
     >
-      <div className={`relative overflow-hidden bg-muted ${p.id === "dentalpro" ? "aspect-auto md:flex md:items-center" : "aspect-[4/3] md:aspect-auto"}`}>
-        {p.id === "dentalpro" ? <DentalDashboard loading="lazy" /> : <img src={p.image} alt={`Illustrative concept of ${p.name}`} loading="lazy" width={1200} height={912} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />}
+      <div className={`relative overflow-hidden bg-muted ${p.id === "dentalpro" ? "aspect-auto md:flex md:items-center" : p.id === "expense-bot" ? "aspect-auto" : "aspect-[4/3] md:aspect-auto"}`}>
+        {p.id === "dentalpro" ? <DentalDashboard loading="lazy" /> : <img src={p.image} alt={`Illustrative concept of ${p.name}`} loading="lazy" width={1200} height={p.id === "expense-bot" ? 896 : 912} className={`${p.id === "expense-bot" ? "h-auto" : "h-full"} w-full object-cover transition duration-700 group-hover:scale-[1.03]`} />}
         <Illustrative />
       </div>
       <div className="flex min-w-0 flex-col p-6 sm:p-8">
