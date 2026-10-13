@@ -23,6 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 const GITHUB = "https://github.com/Uniqmanage";
+const EMAIL = "contact@uniqmanage.com";
 const NAV = [
   { href: "#products", label: "Products" },
   { href: "#dentalpro", label: "DentalPro" },
@@ -366,6 +367,12 @@ function Contact() {
         <div className="relative">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact & collaboration</p>
           <h2 className="mt-3 max-w-2xl text-[1.75rem] font-semibold leading-tight sm:text-4xl">Let's build something useful together.</h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            Write to us at{" "}
+            <a href={`mailto:${EMAIL}`} className="font-semibold text-primary underline-offset-4 hover:underline">
+              {EMAIL}
+            </a>
+          </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {items.map(([t, d]) => (
               <div key={t} className="rounded-xl border border-border bg-background/60 p-5">
@@ -375,8 +382,8 @@ function Contact() {
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={GITHUB} target="_blank" rel="noreferrer" className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-foreground transition hover:opacity-90">
-              Reach us on GitHub
+            <a href={`mailto:${EMAIL}`} className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-foreground transition hover:opacity-90">
+              Email UniqManage
             </a>
             <a href="#products" className="rounded-full border border-border px-6 py-3 text-center font-medium transition hover:bg-secondary">
               View products
