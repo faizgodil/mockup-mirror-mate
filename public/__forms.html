@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Netlify form definitions</title><meta name="robots" content="noindex" /></head>
+  <body>
+    <!-- Static definition so Netlify detects the React-rendered contact form at deploy time. -->
+    <form name="uniqmanage-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="uniqmanage-contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="enquiry">
+        <option>Product Enquiry</option>
+        <option>Partnership &amp; Collaboration</option>
+        <option>Startup Programs</option>
+        <option>Technical Support</option>
+        <option>Other</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

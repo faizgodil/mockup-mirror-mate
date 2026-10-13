@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { products, type Product, type ProductStatus } from "@/content/products";
 import dentalProImage from "@/assets/dentalpro.jpg";
 import dentalProMobileImage from "@/assets/dentalpro-mobile.jpg";
+import { ContactForm } from "@/components/ContactForm";
 
 const TITLE = "UniqManage — Intelligent Software. Built for Real Work.";
 const DESC =
@@ -382,13 +383,14 @@ function Contact() {
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={`mailto:${EMAIL}`} className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-foreground transition hover:opacity-90">
-              Email UniqManage
+            <a href="#contact-form" className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-foreground transition hover:opacity-90">
+              Send Message
             </a>
             <a href="#products" className="rounded-full border border-border px-6 py-3 text-center font-medium transition hover:bg-secondary">
               View products
             </a>
           </div>
+          <ContactForm />
         </div>
       </div>
     </section>
